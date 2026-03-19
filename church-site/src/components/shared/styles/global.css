@@ -293,7 +293,6 @@ body {
 /* Home About */
 .home-about,
 .home-giving{
-    background-image: url('./src/assets/geometric_pattern_bg.jpg');
   background-size: cover;       /* scales image to fully cover */
   background-position: center;  /* centers image */
   background-repeat: no-repeat; /* don’t tile */

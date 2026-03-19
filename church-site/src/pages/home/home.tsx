@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import "../../components/shared/styles/global.css";
 import heroBackground from "../../assets/hero-bg.jpeg"; // Hero background image
+import patternBg from "../../assets/geometric_pattern_bg.jpg";
 import cornerImage from "../../assets/rccg.jpg"; // Corner image on glass
 import logoImg from "../../assets/rccg.png"; // Logo image
 import ServiceImg1 from "../../assets/center_img.jpg";
@@ -147,7 +148,11 @@ useEffect(() => {
       </section>
 
       {/* ===== About Section ===== */}
-      <section className="home-about fade-in-up" id="about">
+      <section
+            className="home-about fade-in-up"
+            id="about"
+            style={{ backgroundImage: `url(${patternBg})` }}
+        >
         <h2 className="home-section-title">Our Mission</h2>
         <p className="home-section-text">
           We strive to spread the love of Christ, serve our community, and create a welcoming place for spiritual growth.
@@ -188,7 +193,11 @@ useEffect(() => {
       </section>
 
       {/* ===== Giving Section ===== */}
-      <section className="home-giving fade-in-up" id="giving">
+      <section
+        className="home-giving fade-in-up"
+        id="giving"
+        style={{ backgroundImage: `url(${patternBg})` }}
+      >
         <h2 className="home-section-title">Support Our Mission</h2>
         <p className="home-section-text">
           Help us spread hope and love to the world. Every gift makes a difference.
