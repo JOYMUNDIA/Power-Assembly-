@@ -153,7 +153,7 @@ body {
 .sidenav-bubble-close {
   position: fixed;
   top: 1.5rem;            /* distance from top */
-  right: 50%;             /* slightly outside the sidebar */
+  right: 18.5rem;             /* slightly outside the sidebar */
   z-index: 1200;           /* above sidebar */
   width: 50px;
   height: 50px;
