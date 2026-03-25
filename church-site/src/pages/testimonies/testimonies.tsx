@@ -159,8 +159,7 @@ const TestimonyMenu: React.FC = () => {
         <div className="testimony-hero-content">
           <h1 className="testimony-hero-title">Testimonies of Grace</h1>
           <p className="testimony-hero-text">
-            Explore powerful stories of salvation, healing, and transformation —
-            presented like a menu of God’s goodness.
+            Explore powerful stories of salvation, healing, and transformation
           </p>
         </div>
       </section>
