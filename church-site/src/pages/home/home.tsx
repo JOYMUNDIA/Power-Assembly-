@@ -95,7 +95,7 @@ useEffect(() => {
             <nav className="desktop-nav">
                 <a href="#home" className="active">Home</a>
                 <a href="#about">About Us</a>
-                <a href="#testimonials">Testimonies</a>
+                <a href="/testimonies">Testimonies</a>
                 <a href="#prayer">Prayer Requests</a>
                 <a href="#faith">Faith Material</a>
                 <a href="#contact">Contact Us</a>
@@ -118,7 +118,7 @@ useEffect(() => {
             <nav>
                 <a href="#home" onClick={toggleSidenav} className="active">Home</a>
                 <a href="#about" onClick={toggleSidenav}>About Us</a>
-                <a href="#testimonials" onClick={toggleSidenav}>Testimonies</a>
+                <a href="/testimonies" onClick={toggleSidenav}>Testimonies</a>
                 <a href="#prayer" onClick={toggleSidenav}>Prayer Requests</a>
                 <a href="#faith" onClick={toggleSidenav}>Faith Material</a>
                 <a href="#contact" onClick={toggleSidenav}>Contact Us</a>

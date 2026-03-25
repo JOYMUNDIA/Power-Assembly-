@@ -78,6 +78,7 @@ html, body {
 /* Full-page background image */
 body {
   color: var(--text-dark);
+  overflow-x: hidden;
 }
 
 h1,

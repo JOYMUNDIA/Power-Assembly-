@@ -53,7 +53,10 @@ body {
 }
 
 .home-header nav.desktop-nav a:hover {
-  color: #60a3bc; /* highlight on hover */
+  background: linear-gradient(135deg, #10026c 0%, #a6befd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* Hamburger menu */
@@ -153,7 +156,7 @@ body {
 .sidenav-bubble-close {
   position: fixed;
   top: 1.5rem;            /* distance from top */
-  right: 18.5rem;             /* slightly outside the sidebar */
+  right: 262px;             /* slightly outside the sidebar */
   z-index: 1200;           /* above sidebar */
   width: 50px;
   height: 50px;
@@ -730,4 +733,362 @@ a.dithered-button:hover {
   .fade-in-right > * {
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
   }
+}
+
+
+/* ===== Testimony Page ===== */
+
+/* RESET (scoped lightly) */
+.testimony-page * {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* PAGE */
+.testimony-page {
+  background: #fdfaf6;
+  color: #333;
+}
+
+/* HERO */
+.testimony-hero {
+  position: relative;
+  height: 60vh;
+  background: url("https://images.unsplash.com/photo-1649365810638-c003e09a8d1d?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+    center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.testimony-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.testimony-hero-content {
+  position: relative;
+  text-align: center;
+  color: white;
+  padding: 20px;
+  max-width: 700px;
+}
+
+.testimony-hero-title {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: white;
+  opacity: 0.9;
+  padding-bottom: 1.5rem;
+}
+
+.testimony-hero-text {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* LAYOUT */
+.testimony-container {
+  display: flex;
+  max-width: 1100px;
+  margin: 40px auto;
+  gap: 20px;
+  padding: 0 20px;
+}
+
+/* SIDEBAR */
+.testimony-sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+              rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+              rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  max-height: 90vh;       /* sidebar height limited to viewport */
+}
+
+/* GUIDE TEXT */
+.testimony-guide-text {
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+/* SCROLLABLE LIST TAKES REMAINING SPACE */
+.testimony-sidebar-scroll {
+  flex: 1;               /* grow to fill available space */
+  overflow-y: auto;
+  margin-bottom: 10px;   /* optional spacing above hint */
+}
+
+/* SIDEBAR LIST */
+.testimony-sidebar-list {
+  list-style: none;
+  padding: 0;
+}
+
+.testimony-sidebar-btn {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: none;
+  text-align: left;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  color: #333; /* ensures visibility */
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.testimony-sidebar-btn:hover {
+  background: linear-gradient(135deg, #757D93 0%, #182734 100%);
+  color: #fdf6e3;
+}
+
+.testimony-active {
+  background: linear-gradient(135deg, #182734 0%, #757D93 100%);
+  color: white;
+}
+
+/* HINT ALWAYS VISIBLE */
+.testimony-sidebar-hint {
+  font-size: 0.85rem;
+  color: #999;
+  text-align: center;
+  flex-shrink: 0;         /* never shrink */
+  margin-top: 5px;
+}
+
+/* CONTENT */
+.testimony-content {
+  flex: 1;
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+              rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+}
+
+.testimony-title {
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+
+.testimony-description {
+  margin-bottom: 20px;
+  color: #777;
+}
+
+/* CARDS */
+.testimony-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 15px;
+}
+
+.testimony-card {
+  display: flex;
+  flex-direction: column; /* stack children vertically */
+  justify-content: space-between; /* push button to the bottom */
+  padding: 15px;
+  border-radius: 10px;
+  background: url("/images/card-bg.jpg") center/cover no-repeat;
+  border: 1px solid #eee;
+  transition: 0.3s;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  color: white;
+  min-height: 250px; /* optional: ensures all cards have a base height */
+}
+
+.testimony-card-title{
+  color: #182734;
+  font-style: italic;
+}
+
+.testimony-card p {
+  margin: 0;
+  font-weight: 500;
+  color: #333;
+}
+
+.testimony-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+}
+
+.read-more-btn {
+  margin-top: 15px; /* small spacing from content */
+  align-self: flex-start; /* keeps the button left-aligned */
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #182734;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 1rem;
+}
+
+.read-more-btn:hover {
+  background-color: #757d93;
+}
+
+/* FOOTER */
+.testimony-footer {
+  text-align: center;
+  padding: 20px;
+  color: #777;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .testimony-container {
+    flex-direction: column;
+  }
+
+  .testimony-sidebar {
+    width: 100%;
+  }
+
+  .testimony-hero-title {
+    font-size: 2.2rem;
+  }
+}
+
+/* MOBILE DROPDOWN */
+.testimony-mobile-select {
+  display: none;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.testimony-select-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.testimony-select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+}
+
+/* PLACEHOLDER TEXT */
+.testimony-placeholder {
+  color: #777;
+  font-style: italic;
+}
+
+/* RESPONSIVE BEHAVIOR */
+@media (max-width: 768px) {
+  .testimony-sidebar {
+    display: none;
+  }
+
+  .testimony-mobile-select {
+    display: block;
+  }
+}
+
+/* Testimony Modal */
+/* MODAL OVERLAY */
+.testimony-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 60px;
+}
+
+/* MODAL BOX */
+.testimony-modal {
+  background: white;
+  border-radius: 12px;
+  max-width: 800px;
+  width: 100%;
+  padding: 0; /* 👈 move padding inside body */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  position: relative;
+  color: #333;
+
+  overflow: visible; /* ✅ allows button to escape */
+}
+
+.testimony-modal-body {
+  padding: 40px 25px 25px; /* 👈 space for button */
+  max-height: 90vh;
+  overflow-y: auto; /* ✅ scrolling happens here */
+}
+
+/* CLOSE BUTTON */
+.testimony-close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+
+  width: 42px;
+  height: 42px;
+  min-width: 42px;   /* 👈 prevents shrinking */
+  min-height: 42px;  /* 👈 prevents shrinking */
+
+  padding: 0;        /* 👈 VERY IMPORTANT (removes distortion) */
+  border: none;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.4rem;
+  font-weight: 800;
+  line-height: 1;     /* 👈 prevents vertical stretching */
+
+  cursor: pointer;
+
+  background: linear-gradient(135deg, #757D93 0%, #182734 100%);
+  color: #ffffff;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  transition: 0.2s;
+}
+
+.testimony-close-btn:hover {
+  transform: translate(50%, -50%) scale(1.1);
+}
+
+/* MODAL CONTENT */
+
+.testimony-modal-content {
+  line-height: 1.6;
+  color: #444;
+}
+
+.testimony-modal h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.testimony-modal-author {
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.testimony-modal-content {
+  text-align: left;     /* 👈 key for readability */
+  line-height: 1.7;
+  color: #444;
 }
