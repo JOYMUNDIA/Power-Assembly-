@@ -1,0 +1,170 @@
+/* =========================================
+   UNDER CONSTRUCTION PAGE - FULL STYLES
+========================================= */
+
+/* ===============================
+   WRAPPER (Animated Background)
+================================ */
+.wrapper {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+  animation: zoomBg 12s ease-in-out infinite;
+}
+
+/* Background zoom animation */
+@keyframes zoomBg {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* ===============================
+   BUBBLE LAYER
+================================ */
+.bubbles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1; /* behind content */
+}
+
+/* Individual bubbles */
+.circle {
+  position: absolute;
+  bottom: -10px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  animation: floatUp linear infinite;
+  animation-duration: 20s;
+}
+
+/* Floating animation */
+@keyframes floatUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+
+/* ===============================
+   CONTENT (ON TOP)
+================================ */
+.content {
+  position: relative;
+  z-index: 10; /* above bubbles */
+  text-align: center;
+  color: #ffffff;
+  padding: 20px;
+  max-width: 500px;
+}
+
+/* ===============================
+   IMAGE (PULSE EFFECT)
+================================ */
+.imageWrapper {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  animation: zoomPulse 8s ease-in-out infinite;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.imageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Pulse animation */
+@keyframes zoomPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+/* ===============================
+   TEXT STYLING
+================================ */
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  line-height: 1.6;
+  color: #c4c4c4;
+}
+
+.ConstructionH1{
+    color: #c4c4c4;
+}
+
+.ConstructionP {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+/* ===============================
+   RESPONSIVE DESIGN
+================================ */
+@media (max-width: 768px) {
+  .imageWrapper { width: 110px; height: 110px; }
+  h1 { font-size: 1.5rem; }
+  p { font-size: 0.95rem; }
+}
+
+@media (max-width: 480px) {
+  .imageWrapper { width: 90px; height: 90px; }
+  h1 { font-size: 1.3rem; }
+  p { font-size: 0.85rem; }
+}
+
+/* ===============================
+   BACK TO HOME BUTTON
+================================ */
+.backHomeButton {
+  margin-top: 30px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000000;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+
+  /* Image background */
+  background-image: url('/images/geometric_pattern_bg.jpg'); /* Put your button background in public */
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.backHomeButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.35);
+}
+
+.backHomeButton:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}

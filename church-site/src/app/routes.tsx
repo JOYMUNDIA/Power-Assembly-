@@ -9,6 +9,9 @@ import TestimonyMenu from "../pages/testimonies/testimonies";
 //import AppointmentsPage from "../pages/appointments/AppointmentsPage";
 //import ServicesPage from "../pages/services/ServicesPage";
 
+//Under Construction Page
+import UnderConstruction from "../components/layout/underConstruction"
+
 export const router = createBrowserRouter([
   { path: "/", element: <Home /> },
   //{ path: "/prayer", element: <PrayerPage /> },
@@ -18,4 +21,6 @@ export const router = createBrowserRouter([
   //{ path: "/contact", element: <ContactPage /> },
   //{ path: "/appointments", element: <AppointmentsPage /> },
   //{ path: "/services", element: <ServicesPage /> },
+
+  { path: "/under-construction", element: <UnderConstruction /> },
 ]);

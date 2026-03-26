@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../../components/shared/styles/global.css";
-import logoImg from "../../assets/rccg.png";
+import Navigation from "../../components/shared/Navigation"; 
 
 type Category = {
   id: string;
@@ -100,58 +100,11 @@ const TestimonyMenu: React.FC = () => {
 
   const selectedCategory = categories.find((c) => c.id === selected);
 
-  const [sidenavActive, setSidenavActive] = useState(false);
-  const toggleSidenav = () => setSidenavActive(!sidenavActive);
-
   return (
     <div className="testimony-page">
 
-      {/* ===== Header ===== */}
-        <header className="home-header">
-            <div className="logo">
-                <img src={logoImg} alt="RCCG Power Assembly Logo" />
-            </div>
-
-            {/* Desktop Navigation */}
-            <nav className="desktop-nav">
-                <a href="/">Home</a>
-                <a href="/#about">About Us</a>
-                <a href="/testimonies" className="active">Testimonies</a>
-                <a href="/#prayer">Prayer Requests</a>
-                <a href="/#faith">Faith Material</a>
-                <a href="/#contact">Contact Us</a>
-            </nav>
-
-            {/* Hamburger */}
-            <div className="hamburger" onClick={toggleSidenav}>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-        </header>
-
-        {/* ===== Sidenav ===== */}
-        <div className={`home-sidenav ${sidenavActive ? "active" : ""}`}>
-            <div className="logo">
-                <img src={logoImg} alt="RCCG Power Assembly Logo" />
-            </div>
-
-            <nav>
-                <a href="/" onClick={toggleSidenav}>Home</a>
-                <a href="/#about" onClick={toggleSidenav}>About Us</a>
-                <a href="/testimonies" onClick={toggleSidenav} className="active">Testimonies</a>
-                <a href="/#prayer" onClick={toggleSidenav}>Prayer Requests</a>
-                <a href="/#faith" onClick={toggleSidenav}>Faith Material</a>
-                <a href="/#contact" onClick={toggleSidenav}>Contact Us</a>
-            </nav>
-        </div>
-
-        {/* Floating close button */}
-        {sidenavActive && (
-            <button className="sidenav-bubble-close" onClick={toggleSidenav}>
-                ×
-            </button>
-        )}
+      {/* ===== Header & Sidebar ===== */}
+      <Navigation />
 
       {/* HERO */}
       <section className="testimony-hero">

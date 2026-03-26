@@ -14,6 +14,7 @@ body {
 }
 
 /* ===== Fixed Glass Header ===== */
+/* ===== Fixed Glass Header ===== */
 /* ===== Header Styling ===== */
 .home-header {
   box-sizing: border-box; /* very important for width calculations */
@@ -28,7 +29,7 @@ body {
   background: rgba(255, 255, 255, 0.25); /* glass effect */
   backdrop-filter: blur(15px);
   z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Logo */
@@ -57,6 +58,102 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* Ministry Hub Dropdown Styling */
+.ministry-hub {
+  position: relative;
+}
+
+.ministry-hub-btn {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: #182734;
+  font-weight: 600;        /* match nav links */
+  cursor: pointer;
+  padding: 0;              /* remove extra padding */
+  display: inline;         /* behave like text */
+  transition: color 0.3s ease;
+}
+
+.ministry-hub-btn:hover {
+  background: linear-gradient(135deg, #10026c 0%, #a6befd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Show dropdown on hover */
+.ministry-hub:hover .ministry-hub-dropdown {
+  display: block;
+}
+
+.ministry-hub-btn .caret {
+  margin-left: 8px;
+  font-size: 0.75rem;
+  transition: transform 0.3s ease;
+}
+
+.ministry-hub-btn.active .caret {
+  transform: rotate(180deg); /* Rotate caret when active */
+}
+
+.ministry-hub:hover .caret,
+.ministry-hub-btn.active .caret {
+  transform: rotate(180deg);
+}
+
+/*Prevent flicker (Fix by adding a small invisible buffer:)*/
+.ministry-hub {
+  position: relative;
+}
+
+.ministry-hub::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 10px; /* buffer zone */
+}
+
+/* Dropdown Menu */
+.ministry-hub-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  /*background-color: rgba(255, 255, 255, 0.95);*/
+  background: url("/images/card-bg.jpg") center/cover no-repeat;
+  backdrop-filter: blur(10px);
+  width: 200px;
+  padding: 10px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  display: none;
+  border-radius: 10px;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+}
+
+.ministry-hub-btn.active + .ministry-hub-dropdown {
+  display: block;
+}
+
+.ministry-hub-link {
+  display: block;
+  color: #182734;
+  text-decoration: none;
+  padding: 8px;
+  margin: 5px 0;
+  font-size: 0.9rem;
+}
+
+.ministry-hub-link:hover {
+  background-color: #f2f2f2;
+}
+
+.ministry-hub-btn.active {
+  color: #a6befd;
 }
 
 /* Hamburger menu */
@@ -90,6 +187,8 @@ body {
   padding: 2rem 1rem;
   transition: right 0.3s ease;
   z-index: 1100;
+  max-height: 100%; /* Allow full height of the page */
+  overflow-y: auto; /* Enable scrolling */
 }
 
 .home-sidenav.active {
@@ -116,15 +215,46 @@ body {
   transition: all 0.3s ease;
 }
 
+.home-sidenav .ministry-hub-btn {
+  font-size: 1.2rem;
+  color: #182734;
+  text-decoration: none;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  width: 100%;
+  text-align: left;
+
+  background: none;
+  border: none;
+  cursor: pointer;
+  /*font-weight: 600;*/
+}
+
 .home-sidenav nav a:hover,
 .home-sidenav nav a.active,
-.home-header nav.desktop-nav a.active {
+.home-header nav.desktop-nav a.active,
+.home-sidenav .ministry-hub-btn:hover,
+.home-sidenav .ministry-hub-btn.active {
   background: linear-gradient(135deg, #10026c 0%, #a6befd 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: #182734;
-  font-weight: 700; /* optional: make active stand out */
+  font-weight: 700;
+}
+
+.home-sidenav .ministry-hub-dropdown {
+  position: static;   /* VERY important for sidebar */
+  box-shadow: none;
+  background: transparent;
+  padding-left: 10px;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+}
+
+.home-sidenav .ministry-hub-link {
+  font-size: 1rem;
+  padding: 8px 0;
+  border-bottom: none;
 }
 
 /* ===== Responsive adjustments ===== */
@@ -149,6 +279,16 @@ body {
 
   .home-sidenav {
     width: 80%;
+  }
+
+  /* Mobile dropdown menu styles */
+  .ministry-hub-dropdown {
+    width: 100%;
+    left: 0;
+  }
+
+  .ministry-hub-link {
+    padding: 12px;
   }
 }
 

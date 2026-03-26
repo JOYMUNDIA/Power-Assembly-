@@ -1,10 +1,10 @@
 // src/pages/home/home.tsx
 import { useEffect, useState } from "react";
 import "../../components/shared/styles/global.css";
+import Navigation from "../../components/shared/Navigation"; 
 import heroBackground from "../../assets/hero-bg.jpeg"; // Hero background image
 import patternBg from "../../assets/geometric_pattern_bg.jpg";
 import cornerImage from "../../assets/rccg.jpg"; // Corner image on glass
-import logoImg from "../../assets/rccg.png"; // Logo image
 import ServiceImg1 from "../../assets/center_img.jpg";
 import ServiceImg2 from "../../assets/corner_img.jpg";
 import ServiceImg3 from "../../assets/corner_img_2.jpg";
@@ -32,7 +32,6 @@ const slides = [
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [sidenavActive, setSidenavActive] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -40,8 +39,6 @@ export default function Home() {
     }, 5000);
     return () => clearInterval(timer);
   }, []);
-
-  const toggleSidenav = () => setSidenavActive(!sidenavActive);
 
 
 useEffect(() => {
@@ -84,51 +81,8 @@ useEffect(() => {
 
   return (
     <div className="home-root">
-      {/* ===== Header ===== */}
-      
-        <header className="home-header">
-            <div className="logo">
-                <img src={logoImg} alt="RCCG Power Assembly Logo" />
-            </div>
-
-            {/* Desktop Navigation */}
-            <nav className="desktop-nav">
-                <a href="#home" className="active">Home</a>
-                <a href="#about">About Us</a>
-                <a href="/testimonies">Testimonies</a>
-                <a href="#prayer">Prayer Requests</a>
-                <a href="#faith">Faith Material</a>
-                <a href="#contact">Contact Us</a>
-            </nav>
-
-            {/* Hamburger Icon for Mobile */}
-            <div className="hamburger" onClick={toggleSidenav}>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-        </header>
-
-        {/* Sidenav for small screens */}
-        
-        <div className={`home-sidenav ${sidenavActive ? "active" : ""}`}>
-            <div className="logo">
-                <img src={logoImg} alt="RCCG Power Assembly Logo" />
-            </div>
-            <nav>
-                <a href="#home" onClick={toggleSidenav} className="active">Home</a>
-                <a href="#about" onClick={toggleSidenav}>About Us</a>
-                <a href="/testimonies" onClick={toggleSidenav}>Testimonies</a>
-                <a href="#prayer" onClick={toggleSidenav}>Prayer Requests</a>
-                <a href="#faith" onClick={toggleSidenav}>Faith Material</a>
-                <a href="#contact" onClick={toggleSidenav}>Contact Us</a>
-            </nav>
-        </div>
-
-        {/* Floating bubble close button */}
-        { sidenavActive && (
-        <button className="sidenav-bubble-close" onClick={toggleSidenav}>×</button>
-        )}
+      {/* ===== Header & Sidebar ===== */}
+      <Navigation />
 
       {/* ===== Hero Section ===== */}
       <section className="home-hero" id="home">
